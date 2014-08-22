@@ -40,8 +40,18 @@ FILE_TMP_DATE=/tmp/dates.check.tmp
 # End of parameters
 #######################################
 
+CheckLogFilesAreRotating( )
+{
+# If file size are zero due to daily rotate, we return ok, to avoid false positives
+[ ! -s /var/log/github/exceptions.log ] && echo $STRING_OK. Empty exceptions file && exit $RETURN_OK
+
+}
+
 PreWork( )
 {
+
+        CheckLogFilesAreRotating
+
         #Extract time file to parse
         rm -f $FILE_DATE $FILE_TMP_DATE 2>/dev/null
         for MINUTO in `seq 1 $LAST_MINUTES_TO_CHECK`
@@ -50,7 +60,9 @@ PreWork( )
         done
         chmod +x  $FILE_TMP_DATE && . $FILE_TMP_DATE
 
+
 }
+
 
 PostWork( )
 {
