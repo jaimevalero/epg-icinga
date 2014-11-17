@@ -67,8 +67,7 @@ PreWork( )
 
 PostWork( )
 {
-#	rm -f  $FILE_TMP_DATE $FILE_DATE  2>/dev/null
- a=0
+	rm -f  $FILE_TMP_DATE $FILE_DATE  2>/dev/null
 }
 
 LookForExceptions( )
