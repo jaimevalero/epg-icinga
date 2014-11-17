@@ -109,7 +109,6 @@ MY_URL=`cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep -i -f $FILE_DATE | tail 
 MY_APP=`cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep -i -f $FILE_DATE | tail -1 | sed -e 's/^.*\"app\"//g'  | cut -d \" -f2`
 MY_USER=`cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep -i -f $FILE_DATE | tail -1 | sed -e 's/^.*\"user\"//g'  | cut -d \" -f2`
 MY_MESSAGE=`cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep -i -f $FILE_DATE | tail -1 | sed -e 's/^.*\"message\"//g'  | cut -d \" -f2 |  cut -d'[' -f1`
-#MY_MESSAGE=`cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep -i -f $FILE_DATE | tail -1 | sed -e 's/^.*\"message\"//g'  | cut -d \" -f2`    cat $EXCEPTIONS_FILE $EXCEPTIONS_FILE.1  | grep   t0_r0 | sed -e 's/^.*\"message\"//g' |  cut -d \" -f2| cut -d'[' -f1
 CALCULATED_ERROR_MSG="App:$MY_APP user:$MY_USER url:$MY_URL message:$MY_MESSAGE"
 
 }
